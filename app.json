@@ -7,10 +7,10 @@
     "icon": "./assets/images/icon.png",
     "scheme": "reachorsettle",
     "userInterfaceStyle": "automatic",
-    "newArchEnabled": true,
     "ios": {
       "supportsTablet": true,
       "bundleIdentifier": "com.colonelcornbred.ReachOrSettleTrue",
+      "usesAppleSignIn": true,
       "infoPlist": {
         "ITSAppUsesNonExemptEncryption": false
       }
@@ -22,7 +22,6 @@
         "backgroundImage": "./assets/images/android-icon-background.png",
         "monochromeImage": "./assets/images/android-icon-monochrome.png"
       },
-      "edgeToEdgeEnabled": true,
       "predictiveBackGestureEnabled": false,
       "package": "com.colonelcornbred.ReachOrSettle"
     },
@@ -43,7 +42,9 @@
             "backgroundColor": "#000000"
           }
         }
-      ]
+      ],
+      "expo-secure-store",
+      "expo-web-browser"
     ],
     "experiments": {
       "typedRoutes": true,
@@ -53,7 +54,9 @@
       "router": {},
       "eas": {
         "projectId": "493a7260-97b5-4ff7-ada5-7b3d0d8606df"
-      }
+      },
+      "SUPABASE_URL": "https://oekeytcwebhyibguetpa.supabase.co",
+      "SUPABASE_ANON_KEY": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im9la2V5dGN3ZWJoeWliZ3VldHBhIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzMzMjg0MTMsImV4cCI6MjA4ODkwNDQxM30.M8h5ndYwxb22RZh6gx_0JDkjhYXH5uVXTdeoPOOAbCI"
     }
   }
 }
