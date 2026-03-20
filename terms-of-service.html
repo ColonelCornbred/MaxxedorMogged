@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Terms of Service — Maxxed or Mogged</title>
+  <link href="https://fonts.googleapis.com/css2?family=Bangers&family=Inter:wght@400;500&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg: #1A1A2E;
+      --surface: #2D2D44;
+      --surface-light: #3D3D5C;
+      --gold: #F5A623;
+      --purple: #7B2FBE;
+      --white: #FFFFFF;
+      --text-secondary: #A0A0B8;
+      --text-muted: #6B6B88;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      background-color: var(--bg);
+      color: var(--white);
+      font-family: 'Inter', sans-serif;
+      font-size: 16px;
+      line-height: 1.7;
+    }
+
+    body::before {
+      content: '';
+      position: fixed;
+      top: -100px; left: -100px;
+      width: 400px; height: 400px;
+      background: radial-gradient(circle, rgba(123,47,190,0.25) 0%, transparent 70%);
+      pointer-events: none;
+      z-index: 0;
+    }
+    body::after {
+      content: '';
+      position: fixed;
+      bottom: -100px; right: -100px;
+      width: 400px; height: 400px;
+      background: radial-gradient(circle, rgba(245,166,35,0.2) 0%, transparent 70%);
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .container {
+      max-width: 760px;
+      margin: 0 auto;
+      padding: 60px 24px 80px;
+      position: relative;
+      z-index: 1;
+    }
+
+    header {
+      text-align: center;
+      margin-bottom: 48px;
+    }
+
+    .crown {
+      font-size: 48px;
+      display: block;
+      margin-bottom: 12px;
+    }
+
+    h1 {
+      font-family: 'Bangers', cursive;
+      font-size: 52px;
+      letter-spacing: 3px;
+      color: var(--gold);
+      text-shadow: 0 0 20px rgba(245,166,35,0.4);
+      margin-bottom: 8px;
+    }
+
+    .app-name {
+      font-family: 'Bangers', cursive;
+      font-size: 22px;
+      letter-spacing: 2px;
+      color: var(--text-secondary);
+      margin-bottom: 16px;
+    }
+
+    .last-updated {
+      font-size: 13px;
+      color: var(--text-muted);
+    }
+
+    .divider {
+      width: 60px;
+      height: 3px;
+      background: linear-gradient(90deg, var(--purple), var(--gold));
+      margin: 32px auto;
+      border-radius: 2px;
+    }
+
+    .intro {
+      background: var(--surface);
+      border: 1px solid var(--surface-light);
+      border-left: 3px solid var(--gold);
+      border-radius: 12px;
+      padding: 20px 24px;
+      margin-bottom: 40px;
+      color: var(--text-secondary);
+      font-size: 15px;
+    }
+
+    section {
+      margin-bottom: 36px;
+    }
+
+    h2 {
+      font-family: 'Bangers', cursive;
+      font-size: 26px;
+      letter-spacing: 1.5px;
+      color: var(--gold);
+      margin-bottom: 14px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    h2 .icon { font-size: 20px; }
+
+    p {
+      color: var(--text-secondary);
+      margin-bottom: 12px;
+      font-size: 15px;
+    }
+
+    ul {
+      list-style: none;
+      padding: 0;
+      margin-bottom: 12px;
+    }
+
+    ul li {
+      color: var(--text-secondary);
+      font-size: 15px;
+      padding: 6px 0 6px 20px;
+      position: relative;
+    }
+
+    ul li::before {
+      content: '→';
+      position: absolute;
+      left: 0;
+      color: var(--gold);
+      font-size: 13px;
+    }
+
+    .card {
+      background: var(--surface);
+      border: 1px solid var(--surface-light);
+      border-radius: 12px;
+      padding: 20px 24px;
+    }
+
+    .warning-card {
+      background: var(--surface);
+      border: 1px solid var(--surface-light);
+      border-left: 3px solid #EA4335;
+      border-radius: 12px;
+      padding: 20px 24px;
+    }
+
+    a {
+      color: var(--gold);
+      text-decoration: none;
+    }
+
+    a:hover { text-decoration: underline; }
+
+    .contact-box {
+      background: var(--surface);
+      border: 1px solid var(--surface-light);
+      border-top: 3px solid var(--purple);
+      border-radius: 12px;
+      padding: 24px;
+      text-align: center;
+      margin-top: 48px;
+    }
+
+    .contact-box h2 { justify-content: center; margin-bottom: 8px; }
+    .contact-box p { margin-bottom: 4px; }
+
+    footer {
+      text-align: center;
+      margin-top: 48px;
+      padding-top: 24px;
+      border-top: 1px solid var(--surface-light);
+    }
+
+    footer p { font-size: 13px; color: var(--text-muted); }
+
+    footer .footer-brand {
+      font-family: 'Bangers', cursive;
+      letter-spacing: 2px;
+      color: var(--gold);
+      font-size: 18px;
+      display: block;
+      margin-bottom: 6px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+
+    <header>
+      <span class="crown">⚖️</span>
+      <h1>Terms of Service</h1>
+      <p class="app-name">MAXXED OR MOGGED</p>
+      <p class="last-updated">Last updated: March 2026</p>
+    </header>
+
+    <div class="divider"></div>
+
+    <div class="intro">
+      By downloading or using Maxxed or Mogged, you agree to these Terms of Service. Please read them carefully. If you do not agree, do not use the app.
+    </div>
+
+    <section>
+      <h2><span class="icon">📱</span> About the App</h2>
+      <div class="card">
+        <p>Maxxed or Mogged is an attractiveness voting app where users can submit photos and vote on others. The app operates in two modes: Couples Mode and Solo Mode.</p>
+        <p>The app is intended for users aged 18 and older. By using the app you confirm that you are at least 18 years of age.</p>
+      </div>
+    </section>
+
+    <section>
+      <h2><span class="icon">👤</span> Your Account</h2>
+      <div class="card">
+        <ul>
+          <li>You are responsible for maintaining the security of your account.</li>
+          <li>You must provide accurate information when creating your account.</li>
+          <li>You may not share your account with others or create multiple accounts.</li>
+          <li>We reserve the right to suspend or terminate accounts that violate these terms.</li>
+        </ul>
+      </div>
+    </section>
+
+    <section>
+      <h2><span class="icon">📸</span> Photo Submissions</h2>
+      <div class="card">
+        <p>By uploading a photo to Maxxed or Mogged, you agree that:</p>
+        <ul>
+          <li>You own the photo or have explicit permission from all people pictured to submit it.</li>
+          <li>All individuals pictured are at least 18 years of age.</li>
+          <li>You grant us a non-exclusive, royalty-free license to display the photo within the app.</li>
+          <li>You understand the photo will be visible to all users once approved.</li>
+          <li>You can delete your photos at any time from your profile screen.</li>
+        </ul>
+      </div>
+    </section>
+
+    <section>
+      <h2><span class="icon">🚫</span> Prohibited Content</h2>
+      <div class="warning-card">
+        <p>You may not upload photos that contain:</p>
+        <ul>
+          <li>Nudity, explicit, or sexually suggestive content.</li>
+          <li>Images of anyone under 18 years of age.</li>
+          <li>Content that is hateful, harassing, or discriminatory.</li>
+          <li>AI-generated or heavily manipulated images presented as real people.</li>
+          <li>Images of anyone who has not consented to being featured.</li>
+          <li>Spam, advertisements, or promotional material.</li>
+        </ul>
+        <p style="margin-top:12px;">Violations may result in immediate account termination and reporting to relevant authorities where applicable.</p>
+      </div>
+    </section>
+
+    <section>
+      <h2><span class="icon">💳</span> Subscriptions & Purchases</h2>
+      <div class="card">
+        <p>Maxxed or Mogged offers an Unlimited subscription at $4.99/month which provides unlimited votes, unlimited uploads, and an ad-free experience.</p>
+        <ul>
+          <li>Subscriptions are billed monthly through your Apple App Store or Google Play Store account.</li>
+          <li>Subscriptions automatically renew unless cancelled at least 24 hours before the end of the current period.</li>
+          <li>You can manage or cancel your subscription in your App Store or Google Play Store account settings.</li>
+          <li>We do not offer refunds for partial subscription periods.</li>
+          <li>Free tier limits (100 votes/day, 2 uploads/day) apply to non-Unlimited users.</li>
+        </ul>
+      </div>
+    </section>
+
+    <section>
+      <h2><span class="icon">📢</span> Advertising</h2>
+      <div class="card">
+        <p>Free users may be shown rewarded ads via Google AdMob. Watching a rewarded ad grants bonus votes or uploads.</p>
+        <p>Unlimited subscribers are not shown ads.</p>
+      </div>
+    </section>
+
+    <section>
+      <h2><span class="icon">🛡️</span> Content Moderation</h2>
+      <div class="card">
+        <p>All submitted photos are reviewed by our moderation team before going live. We reserve the right to reject or remove any photo at our sole discretion.</p>
+        <p>Users can report photos that violate these terms. Reported photos are automatically hidden pending review.</p>
+        <p>We are not responsible for content submitted by users, but we are committed to keeping the platform safe and appropriate.</p>
+      </div>
+    </section>
+
+    <section>
+      <h2><span class="icon">⚠️</span> Disclaimers</h2>
+      <div class="card">
+        <ul>
+          <li>The app is provided "as is" without warranties of any kind.</li>
+          <li>We are not responsible for any emotional distress caused by voting results.</li>
+          <li>We reserve the right to modify, suspend, or discontinue the app at any time.</li>
+          <li>We are not liable for any loss of data or service interruptions.</li>
+        </ul>
+      </div>
+    </section>
+
+    <section>
+      <h2><span class="icon">🔄</span> Changes to These Terms</h2>
+      <div class="card">
+        <p>We may update these Terms of Service from time to time. Continued use of the app after changes constitutes acceptance of the new terms. We will notify users of significant changes via the app.</p>
+      </div>
+    </section>
+
+    <section>
+      <h2><span class="icon">🌍</span> Governing Law</h2>
+      <div class="card">
+        <p>These terms are governed by the laws of the United States. Any disputes shall be resolved in the courts of the United States.</p>
+      </div>
+    </section>
+
+    <div class="contact-box">
+      <h2><span class="icon">✉️</span> Contact Us</h2>
+      <p>Questions about these Terms?</p>
+      <p><a href="mailto:MaxxedorMogged@gmail.com">MaxxedorMogged@gmail.com</a></p>
+    </div>
+
+    <footer>
+      <span class="footer-brand">MAXXED OR MOGGED</span>
+      <p>© 2026 Maxxed or Mogged. All rights reserved.</p>
+    </footer>
+
+  </div>
+</body>
+</html>
