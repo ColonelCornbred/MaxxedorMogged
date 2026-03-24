@@ -17,6 +17,7 @@
       margin: 0;
       text-align: center;
       padding: 24px;
+      box-sizing: border-box;
     }
     h1 { font-size: 2rem; margin-bottom: 8px; }
     p { color: #aaa; }
@@ -28,7 +29,11 @@
   <p id="status">Verifying your account...</p>
 
   <script>
-    // Grab params from both hash (#) and query string (?)
+    // Get the redirect_to param passed from the app
+    const searchParams = new URLSearchParams(window.location.search);
+    const redirectTo = searchParams.get('redirect_to') || 'maxxedormogged://auth/callback';
+
+    // Grab tokens from both hash (#) and query string (?)
     const hash = window.location.hash.substring(1);
     const query = window.location.search.substring(1);
     const params = new URLSearchParams(hash || query);
@@ -41,16 +46,15 @@
     let deepLink = null;
 
     if (access_token) {
-      deepLink = `reachorsettle://auth/callback#access_token=${access_token}&refresh_token=${refresh_token}&type=${type}`;
+      deepLink = `${redirectTo}#access_token=${access_token}&refresh_token=${refresh_token}&type=${type}`;
     } else if (token_hash) {
-      deepLink = `reachorsettle://auth/callback?token_hash=${token_hash}&type=${type}`;
+      deepLink = `${redirectTo}?token_hash=${token_hash}&type=${type}`;
     }
 
     if (deepLink) {
       document.getElementById('status').textContent = 'Opening app...';
       window.location.href = deepLink;
 
-      // Fallback message if app doesn't open
       setTimeout(() => {
         document.getElementById('status').innerHTML =
           'If the app did not open, <a href="' + deepLink + '">tap here</a>.';
