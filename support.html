@@ -1,269 +1,64 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Support — Maxxed or Mogged</title>
-  <link href="https://fonts.googleapis.com/css2?family=Bangers&family=Inter:wght@400;500&display=swap" rel="stylesheet" />
+  <meta charset="UTF-8">
+  <title>Maxxed or Mogged</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <style>
-    :root {
-      --bg: #1A1A2E;
-      --surface: #2D2D44;
-      --surface-light: #3D3D5C;
-      --gold: #F5A623;
-      --purple: #7B2FBE;
-      --white: #FFFFFF;
-      --text-secondary: #A0A0B8;
-      --text-muted: #6B6B88;
-    }
-
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-
     body {
-      background-color: var(--bg);
-      color: var(--white);
-      font-family: 'Inter', sans-serif;
-      font-size: 16px;
-      line-height: 1.7;
-    }
-
-    body::before {
-      content: '';
-      position: fixed;
-      top: -100px; left: -100px;
-      width: 400px; height: 400px;
-      background: radial-gradient(circle, rgba(123,47,190,0.25) 0%, transparent 70%);
-      pointer-events: none;
-      z-index: 0;
-    }
-    body::after {
-      content: '';
-      position: fixed;
-      bottom: -100px; right: -100px;
-      width: 400px; height: 400px;
-      background: radial-gradient(circle, rgba(245,166,35,0.2) 0%, transparent 70%);
-      pointer-events: none;
-      z-index: 0;
-    }
-
-    .container {
-      max-width: 760px;
-      margin: 0 auto;
-      padding: 60px 24px 80px;
-      position: relative;
-      z-index: 1;
-    }
-
-    header {
-      text-align: center;
-      margin-bottom: 48px;
-    }
-
-    .crown { font-size: 48px; display: block; margin-bottom: 12px; }
-
-    h1 {
-      font-family: 'Bangers', cursive;
-      font-size: 52px;
-      letter-spacing: 3px;
-      color: var(--gold);
-      text-shadow: 0 0 20px rgba(245,166,35,0.4);
-      margin-bottom: 8px;
-    }
-
-    .app-name {
-      font-family: 'Bangers', cursive;
-      font-size: 22px;
-      letter-spacing: 2px;
-      color: var(--text-secondary);
-      margin-bottom: 16px;
-    }
-
-    .divider {
-      width: 60px;
-      height: 3px;
-      background: linear-gradient(90deg, var(--purple), var(--gold));
-      margin: 32px auto;
-      border-radius: 2px;
-    }
-
-    .intro {
-      background: var(--surface);
-      border: 1px solid var(--surface-light);
-      border-left: 3px solid var(--gold);
-      border-radius: 12px;
-      padding: 20px 24px;
-      margin-bottom: 40px;
-      color: var(--text-secondary);
-      font-size: 15px;
-    }
-
-    section { margin-bottom: 36px; }
-
-    h2 {
-      font-family: 'Bangers', cursive;
-      font-size: 26px;
-      letter-spacing: 1.5px;
-      color: var(--gold);
-      margin-bottom: 14px;
+      background-color: #1A1A2E;
+      color: #F5A623;
+      font-family: sans-serif;
       display: flex;
+      flex-direction: column;
       align-items: center;
-      gap: 10px;
-    }
-
-    h2 .icon { font-size: 20px; }
-
-    .card {
-      background: var(--surface);
-      border: 1px solid var(--surface-light);
-      border-radius: 12px;
-      padding: 20px 24px;
-    }
-
-    p { color: var(--text-secondary); margin-bottom: 12px; font-size: 15px; }
-    p:last-child { margin-bottom: 0; }
-
-    ul { list-style: none; padding: 0; margin-bottom: 12px; }
-    ul li {
-      color: var(--text-secondary);
-      font-size: 15px;
-      padding: 6px 0 6px 20px;
-      position: relative;
-    }
-    ul li::before {
-      content: '→';
-      position: absolute;
-      left: 0;
-      color: var(--gold);
-      font-size: 13px;
-    }
-
-    a { color: var(--gold); text-decoration: none; }
-    a:hover { text-decoration: underline; }
-
-    .contact-box {
-      background: var(--surface);
-      border: 1px solid var(--surface-light);
-      border-top: 3px solid var(--purple);
-      border-radius: 12px;
+      justify-content: center;
+      height: 100vh;
+      margin: 0;
+      text-align: center;
       padding: 24px;
-      text-align: center;
-      margin-top: 48px;
     }
-
-    .contact-box h2 { justify-content: center; margin-bottom: 8px; }
-    .contact-box p { margin-bottom: 4px; }
-
-    .response-time {
-      font-size: 13px;
-      color: var(--text-muted);
-      margin-top: 8px;
-    }
-
-    footer {
-      text-align: center;
-      margin-top: 48px;
-      padding-top: 24px;
-      border-top: 1px solid var(--surface-light);
-    }
-
-    footer p { font-size: 13px; color: var(--text-muted); }
-    footer .footer-brand {
-      font-family: 'Bangers', cursive;
-      letter-spacing: 2px;
-      color: var(--gold);
-      font-size: 18px;
-      display: block;
-      margin-bottom: 6px;
-    }
+    h1 { font-size: 2rem; margin-bottom: 8px; }
+    p { color: #aaa; }
+    a { color: #F5A623; }
   </style>
 </head>
 <body>
-  <div class="container">
+  <h1>Maxxed or Mogged</h1>
+  <p id="status">Verifying your account...</p>
 
-    <header>
-      <span class="crown">🛟</span>
-      <h1>Support</h1>
-      <p class="app-name">MAXXED OR MOGGED</p>
-    </header>
+  <script>
+    // Grab params from both hash (#) and query string (?)
+    const hash = window.location.hash.substring(1);
+    const query = window.location.search.substring(1);
+    const params = new URLSearchParams(hash || query);
 
-    <div class="divider"></div>
+    const access_token = params.get('access_token');
+    const refresh_token = params.get('refresh_token') || '';
+    const token_hash = params.get('token_hash');
+    const type = params.get('type') || 'signup';
 
-    <div class="intro">
-      Need help with the app? Check the FAQs below first — most common issues are covered. If you still need help, reach out and we'll get back to you within 48 hours.
-    </div>
+    let deepLink = null;
 
-    <section>
-      <h2><span class="icon">❓</span> Frequently Asked Questions</h2>
+    if (access_token) {
+      deepLink = `reachorsettle://auth/callback#access_token=${access_token}&refresh_token=${refresh_token}&type=${type}`;
+    } else if (token_hash) {
+      deepLink = `reachorsettle://auth/callback?token_hash=${token_hash}&type=${type}`;
+    }
 
-      <div class="card" style="margin-bottom: 12px;">
-        <p><strong style="color:var(--white)">My photo has been pending for a long time — what's happening?</strong></p>
-        <p>All photos are reviewed by our moderation team before going live. This usually takes less than 24 hours. If your photo has been pending for more than 48 hours, email us and we'll look into it.</p>
-      </div>
+    if (deepLink) {
+      document.getElementById('status').textContent = 'Opening app...';
+      window.location.href = deepLink;
 
-      <div class="card" style="margin-bottom: 12px;">
-        <p><strong style="color:var(--white)">My photo was rejected — why?</strong></p>
-        <p>Photos are rejected if they contain explicit content, appear to feature someone under 18, are AI-generated, or violate our community guidelines. If you believe your photo was rejected in error, contact us.</p>
-      </div>
-
-      <div class="card" style="margin-bottom: 12px;">
-        <p><strong style="color:var(--white)">How do I delete my photo?</strong></p>
-        <p>Go to your Profile screen, find the photo you want to remove, and tap the 🗑 Delete Photo button at the bottom of the photo card.</p>
-      </div>
-
-      <div class="card" style="margin-bottom: 12px;">
-        <p><strong style="color:var(--white)">I hit my daily vote limit — how do I get more votes?</strong></p>
-        <p>Free users get 100 votes per day. You can watch a rewarded ad for +50 bonus votes, or upgrade to the Unlimited plan for unlimited daily votes.</p>
-      </div>
-
-      <div class="card" style="margin-bottom: 12px;">
-        <p><strong style="color:var(--white)">How do I restore my Unlimited subscription?</strong></p>
-        <p>Open the app and go to the paywall screen. Tap "Restore Purchases" at the bottom. Make sure you're signed into the same Apple ID or Google account used for the original purchase.</p>
-      </div>
-
-      <div class="card" style="margin-bottom: 12px;">
-        <p><strong style="color:var(--white)">How do I cancel my Unlimited subscription?</strong></p>
-        <p>On iPhone: Settings → tap your name → Subscriptions → Maxxed or Mogged → Cancel. On Android: Google Play → Subscriptions → Maxxed or Mogged → Cancel.</p>
-      </div>
-
-      <div class="card" style="margin-bottom: 12px;">
-        <p><strong style="color:var(--white)">Can other users contact me or see my personal info?</strong></p>
-        <p>No. Maxxed or Mogged has no messaging feature and no personal information is ever displayed publicly. Your email and identity are completely private — only your photos and vote stats are visible.</p>
-      </div>
-
-      <div class="card" style="margin-bottom: 12px;">
-        <p><strong style="color:var(--white)">How do I report a photo?</strong></p>
-        <p>Tap the ⚑ Report button in the top right corner of the voting screen. Select your reason and submit. Reported photos are automatically hidden pending review.</p>
-      </div>
-
-      <div class="card">
-  <p><strong style="color:var(--white)">How do I delete my account?</strong></p>
-  <p>You can delete your account directly in the app. Go to your <strong style="color:var(--white)">Profile screen</strong>, scroll to the bottom, and tap <strong style="color:var(--white)">"Delete My Account"</strong>. This will permanently delete your account and all associated data immediately.</p>
-  <p>If you have trouble deleting your account in the app, email us at <a href="mailto:MaxxedorMogged@gmail.com">MaxxedorMogged@gmail.com</a> and we will delete it within 7 days.</p>
-</div>
-    </section>
-
-    <section>
-      <h2><span class="icon">🔗</span> Other Links</h2>
-      <div class="card">
-        <ul>
-          <li><a href="privacy-policy.html">Privacy Policy</a></li>
-          <li><a href="terms-of-service.html">Terms of Service</a></li>
-        </ul>
-      </div>
-    </section>
-
-    <div class="contact-box">
-      <h2><span class="icon">✉️</span> Contact Us</h2>
-      <p>Still need help? We're here for you.</p>
-      <p><a href="mailto:MaxxedorMogged@gmail.com">MaxxedorMogged@gmail.com</a></p>
-      <p class="response-time">We typically respond within 48 hours.</p>
-    </div>
-
-    <footer>
-      <span class="footer-brand">MAXXED OR MOGGED</span>
-      <p>© 2026 Maxxed or Mogged. All rights reserved.</p>
-    </footer>
-
-  </div>
+      // Fallback message if app doesn't open
+      setTimeout(() => {
+        document.getElementById('status').innerHTML =
+          'If the app did not open, <a href="' + deepLink + '">tap here</a>.';
+      }, 2000);
+    } else {
+      document.getElementById('status').textContent =
+        'No verification token found. Please try the link from your email again.';
+    }
+  </script>
 </body>
 </html>
