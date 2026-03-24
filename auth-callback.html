@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Confirming your account — Maxxed or Mogged</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      background-color: #1A1A2E;
+      color: #FFFFFF;
+      font-family: Arial, sans-serif;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      padding: 24px;
+      text-align: center;
+    }
+    .container { max-width: 400px; width: 100%; }
+    .crown { font-size: 64px; margin-bottom: 16px; display: block; }
+    h1 {
+      color: #F5A623;
+      font-size: 28px;
+      letter-spacing: 2px;
+      margin-bottom: 12px;
+    }
+    p { color: #A0A0B8; font-size: 15px; line-height: 1.6; margin-bottom: 24px; }
+    .button {
+      display: inline-block;
+      background-color: #F5A623;
+      color: #1A1A2E;
+      padding: 16px 32px;
+      border-radius: 12px;
+      font-size: 18px;
+      font-weight: bold;
+      text-decoration: none;
+      letter-spacing: 1px;
+    }
+    .error { color: #EA4335; margin-top: 16px; font-size: 13px; display: none; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <span class="crown">👑</span>
+    <h1>CONFIRMING YOUR ACCOUNT</h1>
+    <p>Opening Maxxed or Mogged...</p>
+    <a id="openApp" class="button" href="#">Open App</a>
+    <p class="error" id="errorMsg">
+      If the app didn't open, make sure Maxxed or Mogged is installed on your device.
+    </p>
+  </div>
+
+  <script>
+    // Parse the URL hash/params from Supabase
+    const hash = window.location.hash.substring(1);
+    const params = new URLSearchParams(hash);
+    
+    // Also check query params
+    const queryParams = new URLSearchParams(window.location.search);
+
+    const accessToken = params.get('access_token') || queryParams.get('access_token');
+    const refreshToken = params.get('refresh_token') || queryParams.get('refresh_token');
+    const type = params.get('type') || queryParams.get('type');
+    const tokenHash = queryParams.get('token_hash');
+    const next = queryParams.get('next') || '/';
+
+    // Build the deep link back to the app
+    let deepLink = 'maxxedormogged://auth/callback?';
+
+    if (accessToken) {
+      deepLink += `access_token=${accessToken}&refresh_token=${refreshToken}&type=${type}`;
+    } else if (tokenHash) {
+      deepLink += `token_hash=${tokenHash}&type=${type}`;
+    }
+
+    // Update the manual button
+    document.getElementById('openApp').href = deepLink;
+
+    // Auto-redirect to app
+    window.location.href = deepLink;
+
+    // Show error message after 3 seconds if still on page
+    setTimeout(() => {
+      document.getElementById('errorMsg').style.display = 'block';
+    }, 3000);
+  </script>
+</body>
+</html>
