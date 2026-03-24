@@ -3,6 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Securely confirm your Maxxed or Mogged account connection." />
   <title>Confirming your account — Maxxed or Mogged</title>
   <style>
     * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -37,25 +38,30 @@
       text-decoration: none;
       letter-spacing: 1px;
     }
+    .button:hover { background-color: #d4801a; cursor: pointer; }
+    .button:focus { outline: 2px solid #F5A623; outline-offset: 2px; }
     .error { color: #EA4335; margin-top: 16px; font-size: 13px; display: none; }
   </style>
 </head>
 <body>
   <div class="container">
-    <span class="crown">👑</span>
+    <span class="crown" role="img" aria-label="Crown">👑</span>
     <h1>CONFIRMING YOUR ACCOUNT</h1>
-    <p>Opening Maxxed or Mogged...</p>
+    <p id="statusText">Opening Maxxed or Mogged...</p>
     <a id="openApp" class="button" href="#">Open App</a>
     <p class="error" id="errorMsg">
       If the app didn't open, make sure Maxxed or Mogged is installed on your device.
     </p>
+    <noscript>
+      <p class="error" style="display:block;">This page requires JavaScript to confirm your account.</p>
+    </noscript>
   </div>
 
   <script>
     // Parse the URL hash/params from Supabase
     const hash = window.location.hash.substring(1);
     const params = new URLSearchParams(hash);
-    
+
     // Also check query params
     const queryParams = new URLSearchParams(window.location.search);
 
@@ -65,25 +71,46 @@
     const tokenHash = queryParams.get('token_hash');
     const next = queryParams.get('next') || '/';
 
-    // Build the deep link back to the app
-    let deepLink = 'maxxedormogged://auth/callback?';
+    const openAppEl = document.getElementById('openApp');
+    const errorEl = document.getElementById('errorMsg');
+    const statusEl = document.getElementById('statusText');
+
+    // Build the deep link back to the app safely
+    const deepLinkBase = 'maxxedormogged://auth/callback';
+    const deepLinkParams = new URLSearchParams();
 
     if (accessToken) {
-      deepLink += `access_token=${accessToken}&refresh_token=${refreshToken}&type=${type}`;
+      deepLinkParams.set('access_token', accessToken);
+      if (refreshToken) deepLinkParams.set('refresh_token', refreshToken);
+      if (type) deepLinkParams.set('type', type);
+      if (next) deepLinkParams.set('next', next);
     } else if (tokenHash) {
-      deepLink += `token_hash=${tokenHash}&type=${type}`;
+      deepLinkParams.set('token_hash', tokenHash);
+      if (type) deepLinkParams.set('type', type);
+      if (next) deepLinkParams.set('next', next);
     }
 
+    const deepLink = deepLinkParams.toString()
+      ? `${deepLinkBase}?${deepLinkParams.toString()}`
+      : deepLinkBase;
+
     // Update the manual button
-    document.getElementById('openApp').href = deepLink;
+    openAppEl.href = deepLink;
 
-    // Auto-redirect to app
-    window.location.href = deepLink;
+    // If there's no auth info, don't redirect—show a helpful error.
+    if (!accessToken && !tokenHash) {
+      statusEl.textContent = 'Authorization failed.';
+      errorEl.textContent = 'Missing authorization parameters. Please retry the login link or contact support.';
+      errorEl.style.display = 'block';
+    } else {
+      // Auto-redirect to app
+      window.location.href = deepLink;
 
-    // Show error message after 3 seconds if still on page
-    setTimeout(() => {
-      document.getElementById('errorMsg').style.display = 'block';
-    }, 3000);
+      // Show error message after 3 seconds if still on page
+      setTimeout(() => {
+        errorEl.style.display = 'block';
+      }, 3000);
+    }
   </script>
 </body>
 </html>
